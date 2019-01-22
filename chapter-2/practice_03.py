@@ -1,3 +1,5 @@
+# Practice using complex number and interactive session
+
 import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
