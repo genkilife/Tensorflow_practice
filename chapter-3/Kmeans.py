@@ -48,17 +48,17 @@ centroids = tf.Variable(tf.gather(vector_values, centroid_indices))
 expanded_vectors = tf.expand_dims(vectors, 0)
 expanded_centroids = tf.expand_dims(centroids, 1)
 
-vectors_subtration = tf.sub(expanded_vectors,expanded_centroids)
-euclidean_distances =         
-               \tf.reduce_sum(tf.square(vectors_subtration), 2)
+vectors_subtration = tf.subtract(expanded_vectors,expanded_centroids)
+euclidean_distances = tf.reduce_sum(tf.square(vectors_subtration), 2)
 
 assignments = tf.to_int32(tf.argmin(euclidean_distances, 0))
 
 partitions = [0, 0, 1, 1, 0]
 num_partitions = 2
 data = [10, 20, 30, 40, 50]
-outputs[0] = [10, 20, 50]
-outputs[1] = [30, 40]
+outputs=list()
+outputs.append([10, 20, 50])
+outputs.append([30, 40])
 partitions = tf.dynamic_partition(vectors, assignments, num_clusters)
 
 update_centroids = tf.concat(0, \
