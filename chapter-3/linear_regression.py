@@ -29,7 +29,7 @@ cost_function = tf.reduce_mean(tf.square(y - y_point))
 optimizer = tf.train.GradientDescentOptimizer(0.5)
 train = optimizer.minimize(cost_function)
 
-model = tf.initialize_all_variables()
+model = tf.global_variables_initializer()
 
 with tf.Session() as session:
         session.run(model)
